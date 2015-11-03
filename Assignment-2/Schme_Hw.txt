@@ -1,0 +1,45 @@
+Programming Languages
+Assignment - 2
+Scheme
+
+Answers
+
+1)
+
+	Defining a function as ‘gcd’ throws the following error, so I have taken the 	function name as ‘gcdd’
+
+	../../Applications/Racket v6.2.1/share/pkgs/drracket/drracket/private/
+	rep.rkt:1131:24: define-values: assignment disallowed;
+ 	cannot change constant
+  	constant: gcd
+
+	> (define (gcdd a b)
+   		(cond [(= b 0) a]
+        		[else (gcdd b (modulo a b))])) 
+	> (gcdd 4 20)
+	4
+
+2) 	> (define (rac l)
+ 		 (cond ((null? (cdr l)) (car l))
+       		 (else (rac (cdr l)))))
+	> (rac(list 'A 'B 'C))
+	C
+
+3)	> (define (snoc a1 list)
+		(foldr cons list a1))
+	> (snoc 'A '(B C D)) 
+	(B C D A)
+
+4)
+	> (define (rdc ls)
+    		(if (null? (cdr ls))
+        		'()
+        		(cons (car ls) (rdc (cdr ls)))))
+	> (rdc '(A B C D))
+	(A B C)
+
+5)     	> (define (pr list)
+	 	(if (null? list) '()
+		(append (pr (cdr l)) (l (car list))))) 
+	> (pr (LIST 'A 'B 'C))
+	(C B A)
